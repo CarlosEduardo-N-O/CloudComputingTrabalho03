@@ -1,9 +1,13 @@
 services:
-  campusops:
+  linux:
     build: .
     container_name: trabalho03-linux
+
+    stdin_open: true
+    tty: true
+
     ports:
-      - "8080:80"
+      - "3000:3000"
+
     volumes:
-      - ./backups:/app/backups
-      - ./logs:/app/logs
+      - .:/app
