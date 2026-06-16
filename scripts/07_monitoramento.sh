@@ -19,16 +19,16 @@ df -h
 echo
 echo "POSTGRESQL"
 
-ps aux | grep postgres
+ps aux | grep postgres | grep -v grep
 
 echo
-echo "Apache:"
+echo "Servidor Node.js:"
 
-if pgrep apache2 > /dev/null
+if pgrep -f "node server.js" > /dev/null
 then
-    echo "[OK] Apache em execução"
+    echo "[OK] Servidor Node.js em execução"
 else
-    echo "[ALERTA] Apache parado"
+    echo "[ALERTA] Servidor Node.js parado"
 fi
 
 echo
